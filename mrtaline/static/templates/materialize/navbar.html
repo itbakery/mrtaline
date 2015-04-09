@@ -1,0 +1,47 @@
+<div class="navbar-fixed">
+    <nav class="blue darken-2" role="navigation">
+
+        <div class="nav-wrapper">
+        <a href="#" data-activates="slide-out" class="button-collapse">
+            <i class="mdi-navigation-menu"></i>
+        </a>
+            <a href="/" class="brand-logo">MRTALINE</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="{% url 'map'%}">Map</a></li>
+                <li><a href="{% url 'report'%}">+ Report</a></li>
+                <li><a href="{% url 'blog:create'%}">+ Blog</a></li>
+
+                {% if not user.is_authenticated %}
+                <li>
+                    <a href="{% url 'signup' %}" >Register</a>
+                </li>
+                <li>
+                    <a href="{% url 'login' %}" >Login</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'logout' %}" >Logout</a>
+                </li>
+                {% endif %}
+                <li>
+                    <a id="toggle-search" href="#!">
+                        <i class="small mdi-action-search"></i>
+                    </a>
+                </li>
+            </ul>
+    </nav>
+
+        </div>
+</div>
+<div id="search" class="row white-text grey darken-3" >
+    <form method="get" action="https://www.google.com/search">
+        <input class="form-control" type="text" placeholder="Search ..." name="q"></input>
+        <input type="hidden" value="makoframework.com" name="as_sitesearch"></input>
+    </form>
+</div>
+<ul id="slide-out" class="side-nav full">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+</ul>
+

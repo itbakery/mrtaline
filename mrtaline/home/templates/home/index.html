@@ -1,0 +1,51 @@
+{% extends '_layout/index.html' %}
+
+{% block msg_entries %}
+    {% for msg in object_list %}
+        <a href="#" class="list-group-item">
+            <h6 class="list-group-item-heading" style="color: #2196f3">{{msg.name}}</h6>
+
+            <p class="list-group-item-text">create: {{msg.created}}, {{msg.created|timesince}} ago</p>
+            <p class="list-group-item-text" style="color: #666666">{{msg.message}}</p>
+            <p class="list-group-item-text">type: {{msg.msgtypes.all|join:", "}}</p>
+            
+        </a>
+    {% endfor %}
+{% endblock %}
+
+
+{% block announces_entries %}
+    {% for announce in Announces %}
+    <div class="media {% cycle row1 row2 %}">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" data-src="holder.js/145x95" alt="145x95" data-holder-rendered="true" style="width: 145px; height: 95px; background: #ADD8E6">
+            </a>
+        </div>
+        <div class="media-body">
+            <h6 class="media-heading" id="media-heading">{{announce.title}}</h6>
+            <p class="list-group-item-text">create: {{announce.created}}, {{announce.created|timesince}} ago</p>
+            {{announce.description}}
+        </div>
+    </div>
+       
+    {% endfor %}
+ 
+{% endblock%}
+
+{% block activities_entries %}
+    {% for activity in Activities %}
+    <div class="media {% cycle row1 row2 %}">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" data-src="holder.js/145x95" alt="145x95" data-holder-rendered="true" style="width: 145px; height: 95px;background: #ADD8E6">
+            </a>
+        </div>
+        <div class="media-body">
+            <h6 class="media-heading" id="media-heading">{{activity.title}}</h6>
+            <p class="list-group-item-text">create: {{activity.created}}, {{announce.created|timesince}} ago</p>
+            {{activity.description}}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

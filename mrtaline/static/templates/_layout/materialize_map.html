@@ -1,0 +1,58 @@
+<html>
+  <head>
+    {% load staticfiles %}
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"  media="screen,projection"/>
+    <style>
+    html, body , #map-canvas{
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+    }
+    </style>
+  </head>
+  <body>
+      {% include 'materialize/navbar.html' %}
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+      <div id="map-canvas"></div>
+
+      <div class="row marker-edit">
+        <form class="col s12 save-form marker-edit" style="display: none" id="post-form">
+            {% csrf_token %}
+            <input type="hidden" name="user" class="user" value={{user.username}}>
+            <div class="input-field  col s12">
+                <label for="name">Report</label>
+                <input id="name" type="text" class="name" name="name">
+            </div>
+
+            <div class="col s12">
+                    <select class="browser-default type">
+                        <option value="" disabled selected>Choose your report type</option>
+                        <option value="asset">something I like</option>
+                        <option value="deficit">something I do not like</option>
+                    </select>
+            </div>       
+            <div class="input-field col s12">
+                <label for="description">Description</label>
+                <textarea id="description" class="materialize-textarea desc"></textarea>
+            </div>
+            <button type="button" class="save-marker  btn waves-effect waves-light">Save
+                <i class="mdi-content-send right"></i>
+            </button>
+        </form>
+    </div> 
+    <!--pass django variable to javascript -->
+    <input type="hidden" id="place" name="place" value="{% url 'place'%}">
+    <!--Import jQuery before materialize.js-->
+    {% block footer %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'materialize/bin/materialize.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=drawing,places,geometry"></script>
+    <script src="{% static 'js/markerclusterer.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/savemarker.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>
