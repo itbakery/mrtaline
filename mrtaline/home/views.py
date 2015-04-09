@@ -11,6 +11,7 @@ from reports.models import Portal, Place
 from notes.models import Message, Msgtype
 from announces.models import Announce
 from activities.models import Activity
+from businesses.models import Business
 from forms import RegistrationForm, LoginForm
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -28,6 +29,7 @@ class IndexView(ListView):
         ctx['Msgtypes'] = Msgtype.objects.all()
         ctx['Announces'] = Announce.objects.published()
         ctx['Activities'] = Activity.objects.published()
+        ctx['Businesses'] = Business.objects.all()
         return ctx
 
 

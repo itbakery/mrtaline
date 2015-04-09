@@ -222,49 +222,13 @@ div.form-group {
               <div class="col-md-4">
                   <div class="panel panel-warning">
                       <div class="panel-heading">
-                          <h3 class="panel-title">All Messages</h3>
-
+                          <h3 class="panel-title">Business & Promotion</h3>
                       </div>
                       <div class="panel-body" style="height: 450px;overflow: auto;">
-
-
-                          <div class="list-group">
-
-                              <a class="list-group-item pjax" href="/contacts/VBMJHwcLX3Vx">
-                                  <img src="/static/images/Sofia Acey.jpg" class="img-rounded pull-left" width="55">
-                                  <h6 class="list-group-item-heading">Acey, Sofia</h6>
-                                  <p class="list-group-item-text">Masung Corp.</p>
-
-                                 </br>
-                                  <p class="">
-                                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverr
-                                  </p>
-                              </a>
-                              <a class="list-group-item pjax active" href="/contacts/sH5PxrdzkZ3T">
-                                  <img src="/static/images/Joseph Barish.jpg" class="img-rounded pull-left" width="55">
-                                  <h6 class="list-group-item-heading">Barish, Joseph</h6>
-                                  <p class="list-group-item-text">Masung Corp.</p>
-                              </a>
-                              <a class="list-group-item pjax" href="/contacts/s9RSWs87B4qv">
-                                  <img src="/static/images/Jerry Bess.jpg" class="img-rounded pull-left" width="55">
-                                  <h6 class="list-group-item-heading">Bess, Jerry</h6>
-                                  <p class="list-group-item-text">ZetaComm</p>
-                              </a>
-                              <a class="list-group-item pjax" href="/contacts/eNK2QXWJa8E3">
-                                  <img src="/static/images/Jamie Biddy.jpg" class="img-rounded pull-left" width="55">
-                                  <h6 class="list-group-item-heading">Biddy, Jamie</h6>
-                                  <p class="list-group-item-text">Masung Corp.</p>
-                              </a>
-                              <a class="list-group-item pjax" href="/contacts/kNQv7Urv7AzX">
-                                  <img src="/static/images/Mark Booth.jpg" class="img-rounded pull-left" width="55">
-                                  <h6 class="list-group-item-heading">Booth, Mark</h6>
-                                  <p class="list-group-item-text">Burning Core</p>
-                              </a>
-                          </div>
-
-
-
+                          {% block businesses_entries %}
+                          {% endblock %}
                       </div>
+
                   </div>
               </div>
           </div>

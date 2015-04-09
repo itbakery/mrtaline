@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'notes',
     'announces',
     'activities',
+    'businesses',
 )
 
 MIDDLEWARE_CLASSES = (

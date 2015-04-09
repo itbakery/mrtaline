@@ -49,3 +49,36 @@
     </div>
     {% endfor %}
 {% endblock %}
+
+{% block businesses_entries %}
+    {% for biz in Businesses %}
+    <div class="media {% cycle row1 row2 %}">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" data-src="holder.js/145x95" alt="145x95" data-holder-rendered="true" style="width: 145px; height: 95px;background: #ADD8E6">
+            </a>
+        </div>
+        <div class="media-body">
+            <h6 class="media-heading" id="media-heading">{{biz.title}}</h6>
+            <p class="list-group-item-text">
+            {{biz.description}}
+            </p>
+            <font size="2">
+            <p style="margin: 2px 2px">
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                {{biz.show_location}}
+            </p>
+            <p style="margin: 2px 2px">
+            <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+            {{biz.phone}}
+            </p>
+
+            <p style="margin: 2px 2px">
+            <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+            type: {{biz.biztypes.all|join:", "}} 
+            </p>
+            </font> 
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
